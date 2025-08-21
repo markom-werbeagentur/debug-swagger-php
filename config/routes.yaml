@@ -1,0 +1,27 @@
+api_platform:
+  resource: .
+  type: api_platform
+  prefix: /api
+  defaults:
+    _scope: api
+
+app.swagger_ui:
+  path: /api/doc/{area}
+  methods: GET
+  defaults:
+    _scope: api
+    _controller: nelmio_api_doc.controller.swagger_ui
+    area: default
+
+app.swagger:
+  path: /api/doc/{area}.json
+  methods: GET
+  defaults:
+    _scope: api
+    _controller: nelmio_api_doc.controller.swagger
+    area: default
+
+hello_world:
+    path: /hello/
+    controller: App\Controller\HelloController
+    methods: [GET]
